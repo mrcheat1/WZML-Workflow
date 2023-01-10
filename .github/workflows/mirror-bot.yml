@@ -1,4 +1,4 @@
-name: MLTB-Workflow Deploy
+name: WZML-Workflow Deploy
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ defaults:
 
 env:
   # Change these values if you have forked it for your own works
-  GitHubMail: "example@gmail.com"
-  GitHubName: "TheFlashSpeedster" 
+  GitHubMail: "mrcheatedischeating1@gmail.com"
+  GitHubName: "mrcheat1" 
   Branch: "master"
 
 jobs:
@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Wait and Early Trigger next workflow
         run: |
-          # Waits 300 minutes 
-          while ((${TIME_LEFT:=300} > 0)); do
+          # Waits 50 minutes 
+          while ((${TIME_LEFT:=50} > 0)); do
             printf "Please wait %.f minutes ...\n" "${TIME_LEFT}"
             sleep 5m
             TIME_LEFT=$((TIME_LEFT - 5))
@@ -53,7 +53,7 @@ jobs:
           docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t mirror-bot
           docker image ls
       - name: running Docker
-        timeout-minutes: 325
+        timeout-minutes: 50
         continue-on-error: true
         run: |
           docker run --env CONFIG_FILE_URL=${{ secrets.CONFIG_FILE_URL }} mirror-bot
