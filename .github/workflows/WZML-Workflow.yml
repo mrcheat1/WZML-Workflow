@@ -1,4 +1,4 @@
-name: loy
+name: WZML-Workflow Dispatch
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ defaults:
 
 env:
   # Change these values if you have forked it for your own works
-  GitHubMail: "replace@gmail.com"
-  GitHubName: "replace-01" 
+  GitHubMail: "mrcheatedischeating1@gmail.com"
+  GitHubName: "mrcheat1" 
   Branch: "master"
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
             TIME_LEFT=$((TIME_LEFT - 10))
           done
           # Triggers same workflow before the other job finishes
-          curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/Aloy.yml/dispatches -d '{"ref":"main"}'
+          curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/WZML-Workflow.yml/dispatches -d '{"ref":"main"}'
   mirror:
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +56,7 @@ jobs:
 
       - name: Clone The Secret Mirror Repository
         run: |
-          git clone https://github.com/stalo-01/uswd21.git source
+          git clone https://github.com/mrcheat1/WZML.git source
           
       - name: cp the files
         run: |
